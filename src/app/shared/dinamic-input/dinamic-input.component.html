@@ -1,0 +1,30 @@
+<mat-form-field appearance="outline" class="full-width">
+    <mat-label>{{label}}</mat-label>
+    <input 
+      matInput
+      icon="icon"
+      [formControl]="formControl"
+      [placeholder]="placeholder"
+      [type]="isPassword ? (hidePassword ? 'password' : 'text') : type"
+      [required]="required"
+      [value]="value"
+      (input)="onInput($event)"
+      (blur)="onTouched()"
+      [name]="name"
+      >
+    <mat-icon matSuffix *ngIf="icon && !isPassword">{{icon}}</mat-icon>
+    
+    <button
+      mat-icon-button
+      matSuffix
+      *ngIf="isPassword"
+      (click)="togglePasswordVisibility($event)"
+      [attr.aria-label]="'Hide password'"
+      [attr.aria-pressed]="hidePassword"
+    >
+      <mat-icon>{{passwordVisibilityIcon}}</mat-icon>
+    </button>
+    <mat-error *ngIf="formControl?.hasError('required')">
+        {{label}} é obrigatório
+    </mat-error>
+  </mat-form-field>
