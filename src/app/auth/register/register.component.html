@@ -1,0 +1,61 @@
+<app-default-layout 
+    [title]="'Sign-up'" 
+    [icon]="'arrow_back'" 
+    [disabled]="false" 
+    [onIconClick]="back.bind(this)">
+    <form [formGroup]="signForm" (ngSubmit)="onSubmit()">
+
+        <app-dinamic-input
+            label="Nome Completo"
+            placeholder="Digite seu Nome completo"
+            type="name"
+            [isPassword]="false"
+            [formControl]="nomeControl"
+            >
+        </app-dinamic-input>
+
+        <app-dinamic-input
+            label="Usuário"
+            placeholder="Digite seu Usuário"
+            type="usuario"
+            [isPassword]="false"
+            [formControl]="usuarioControl"
+            icon="person">
+        </app-dinamic-input>
+
+        <app-dinamic-input
+            label="Senha"
+            placeholder="Digite sua senha"
+            type="password"
+            [isPassword]="true"
+            [formControl]="senhaControl"
+            >
+        </app-dinamic-input>
+        <mat-error *ngIf="!notEqual" class="match-error">
+            As senhas devem bater.
+        </mat-error>
+        <app-dinamic-input
+            label="Senha"
+            placeholder="Confirme sua senha"
+            type="password"
+            [isPassword]="true"
+            [formControl]="confirmaSenhaControl"
+            >
+        </app-dinamic-input>
+
+      <div class="actions">
+        <button mat-raised-button color="primary" type="submit" [disabled]="signForm.invalid || (loading$ | async) || !notEqual">
+            <span class="button-content">
+              <mat-progress-spinner
+                *ngIf="loading$ | async"
+                class="spinner"
+                [diameter]="20"
+                mode="indeterminate"
+                color="accent">
+              </mat-progress-spinner>
+              <span>Registrar-se</span>
+            </span>
+        </button>
+    </div>
+    </form>
+</app-default-layout>
