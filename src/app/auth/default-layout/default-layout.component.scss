@@ -1,0 +1,58 @@
+@import "../../global/variables.scss";
+
+html {
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+.mat-mdc-card {
+    border-radius: 0 !important;
+}
+
+.login-register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: white;
+}
+
+.login-register-card {
+    background-color: white;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    max-width: 700px;
+    height: 100%;
+    width: 90%;
+    padding: 40px;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 54px 55px,
+     rgba(0, 0, 0, 0.05) 0px -12px 30px,
+     rgba(0, 0, 0, 0.05) 0px 4px 6px,
+     rgba(0, 0, 0, 0.05) 0px 12px 13px,
+     rgba(0, 0, 0, 0.06) 0px -3px 5px;
+}
+
+mat-card-header {
+    color: $primary-blue;
+    display: flex;
+    justify-content: space-between;
+}
+
+.none {
+    display: none;
+}
+
+.block {
+    display: block;
+}
+
+.mat-mdc-button>.mat-icon, .mat-mdc-unelevated-button>.mat-icon, .mat-mdc-raised-button>.mat-icon, .mat-mdc-outlined-button>.mat-icon {
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+    font-size: 2rem;
+    height: 2rem;
+    width: 2rem;
+}
+
