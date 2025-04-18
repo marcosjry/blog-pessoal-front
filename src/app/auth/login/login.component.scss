@@ -1,0 +1,51 @@
+@import "../../global/variables.scss";
+
+form {
+    margin-top: 20px;
+}
+
+app-dinamic-input {
+    display: flex;
+    justify-content: center;
+}
+  
+.actions {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+button{
+    width: 150px;
+    max-width: 225px;
+}
+
+.button-content {
+    display: flex;
+    align-items: center;
+    gap: 8px; // espaço entre spinner e texto
+}
+  
+@media (max-width: 600px) {
+    .login-card {
+      width: 95%;
+      padding: 15px;
+    }
+    
+    .actions {
+      gap: 10px;
+    }
+
+}
+
+.match-error {
+    position: absolute;
+    top: 64%;
+    left: 35%;
+}
+
+.mat-form-field-required-marker {
+    display: none;
+}
