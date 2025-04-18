@@ -1,0 +1,20 @@
+
+
+.full-width {
+    width: 70%;
+}
+
+button{
+    max-width: 125px !important;
+}
+
+mat-form-field {
+    margin: 25px 0 10px 0;
+}
+
+@media (max-width: 600px) {
+    .full-width {
+        width: 100%;
+    }
+}
+
