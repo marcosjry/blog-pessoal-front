@@ -1,0 +1,54 @@
+@import "../../../core/styles/variables.scss";
+
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding: 24px;
+}
+  
+  .chart-card {
+    padding: 16px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .summary-card {
+    grid-column: 1 / -1;
+    padding: 12px 20px;
+    background-color: #e8f0fe;
+    color: $primary-blue;
+    font-size: 1.2rem;
+    font-weight: bold;
+    max-width: 250px;
+  }
+
+  .summary-content {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  mat-card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #3f51b5;
+  }
+  
+  mat-card-content {
+    padding: 0;
+  }
+  
+  apx-chart {
+    display: block;
+    width: 100%;
+  }
+  
+  /* Responsivo para telas pequenas */
+  @media (max-width: 768px) {
+    .dashboard-container {
+      grid-template-columns: 1fr;
+    }
+  }
+  
