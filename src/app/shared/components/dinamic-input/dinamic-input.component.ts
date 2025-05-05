@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, forwardRef, Input, Output } from '@angular/core';
 import { ControlValueAccessor, FormControl, FormGroup, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormFieldAppearance, MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 
@@ -34,11 +34,13 @@ export class DinamicInputComponent implements ControlValueAccessor {
   @Input() label!: string;
   @Input() placeholder: string = '';  // Adicione isso
   @Input() type: string = 'text';
-  @Input() required: boolean = false;
+  @Input() required!: boolean;
   @Input() icon!: string;
   @Input() isPassword: boolean = false;
   @Input() name: string = '';
-  
+  @Input() customClass: string = ''
+  @Input() appearance: MatFormFieldAppearance = 'outline';
+ 
   @Output() iconClick = new EventEmitter<Event>();
   
   hidePassword: boolean = true;
@@ -57,8 +59,6 @@ export class DinamicInputComponent implements ControlValueAccessor {
   onChange: any = () => {}
   onTouched: any = () => {}
 
-
-
   onInput(event: Event) {
     const value = (event.target as HTMLInputElement).value;
     this.value = value;
@@ -74,12 +74,11 @@ export class DinamicInputComponent implements ControlValueAccessor {
   }
 
   registerOnTouched(fn: any): void {
-    this.onTouched = fn;  // Corrigido aqui
+    this.onTouched = fn;
   }
 
   setDisabledState?(isDisabled: boolean): void {
     // Implementação opcional
   }
-
 
 }
