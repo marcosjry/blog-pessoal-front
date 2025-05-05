@@ -1,0 +1,41 @@
+@import "../../../core/styles/variables.scss";
+
+.nav-bar {
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu-button {
+    letter-spacing: 1.2px;
+    width: 100px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 12px;
+    color: $primary-blue;
+
+    mat-icon {
+      margin-right: 8px;
+      font-size: 20px;
+    }
+  
+    &:hover {
+      color: white;
+      background-color: $primary-blue;
+    }
+    
+  
+    &:focus {
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+}
+
+.menu-button.active {
+  background-color: $primary-blue;
+  color: white;
+}
+
+.options-wrapper {
+  display: flex;
+  gap: 5px;
+}

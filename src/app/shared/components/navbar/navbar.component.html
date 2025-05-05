@@ -1,0 +1,42 @@
+<nav *ngIf="shouldShowNavbar" class="nav-bar">
+
+    <button mat-button class="menu-button"
+        [ngClass]="{'active': activeMenu === 'home'}"
+        (click)="setActiveMenu('home')" 
+    >Home</button>
+
+    <div *ngIf="shouldShowUnauthenticatedOption" class="options-wrapper">
+        <button mat-button class="menu-button"
+            [ngClass]="{'active': activeMenu === 'write'}"
+            (click)="setActiveMenu('write')" 
+            >Escrever
+        </button>
+        <button mat-button class="menu-button"
+            [ngClass]="{'active': activeMenu === 'myposts'}"
+            (click)="setActiveMenu('myposts')" 
+            >Meus Posts
+        </button>
+
+        <button mat-button class="menu-button"
+            [ngClass]="{'active': activeMenu === 'analytics'}"
+            (click)="setActiveMenu('analytics')" 
+            >Análise
+        </button>
+        
+        <button mat-button class="menu-button"
+            [ngClass]="{'active': activeMenu === 'logout'}"
+            (click)="setActiveMenu('logout')" 
+            >Sair
+        </button>
+    </div>
+    <div *ngIf="!shouldShowUnauthenticatedOption" class="options-wrapper">
+        <button mat-button class="menu-button"
+        [ngClass]="{'active': activeMenu === 'login'}"
+        (click)="setActiveMenu('login')"    
+        >Login</button>
+        <button mat-button class="menu-button"
+        [ngClass]="{'active': activeMenu === 'signup'}"
+        (click)="setActiveMenu('signup')"    
+        >Sign-up</button>
+    </div>
+</nav>
