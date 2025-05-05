@@ -7,12 +7,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { Component, OnInit, signal } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginService } from '../services/login.service';
-import { catchError, Observable, of, tap } from 'rxjs';
+import { LoginService } from '../../services/login.service';
+import { timeout } from 'rxjs';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import { Login } from '../models/login';
-import { DinamicInputComponent } from '../../shared/dinamic-input/dinamic-input.component';
+
+import { DinamicInputComponent } from '../../../shared/components/dinamic-input/dinamic-input.component';
 import { DefaultLayoutComponent } from '../default-layout/default-layout.component';
+import { DinamicLoadingButtonComponent } from '../../../shared/components/dinamic-loading-button/dinamic-loading-button.component';
 
 @Component({
   selector: 'app-login',
@@ -26,8 +27,8 @@ import { DefaultLayoutComponent } from '../default-layout/default-layout.compone
     MatButtonModule,
     MatIconModule,
     MatProgressSpinnerModule,
-    DinamicInputComponent
-
+    DinamicInputComponent,
+    DinamicLoadingButtonComponent
   ],
   standalone: true,
   templateUrl: './login.component.html',
@@ -38,8 +39,8 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   hidePassword = true;
   loginError = false;
-  loading$!: Observable<boolean>;
-  
+  isLoading: boolean = false;
+  errorFromRequest: String = '';
   usuarioControl!: FormControl;
   senhaControl!: FormControl;
   
@@ -62,6 +63,7 @@ export class LoginComponent implements OnInit {
     this.loginForm.valueChanges.subscribe(() => {
       this.loginError = false;
     });
+    this.service.loading$.subscribe(value => this.isLoading = value);
   }
   
   hide = signal(true);
@@ -69,30 +71,17 @@ export class LoginComponent implements OnInit {
     this.hide.set(!this.hide());
     event.stopPropagation();
   }
-
-  onSubmit() {
-      if (this.loginForm.invalid) return;
-
-      this.loading$ = this.service.loading$;
-      const loginData: Login = this.loginForm.value;
-
-      this.service.login(loginData).pipe(
-        tap(_ => {
-          setTimeout(() => {
-            this.service.setLoading(false);
-          }, 3000);
-        }),
-        catchError((err) => {
-          setTimeout(() => {
-            this.service.setLoading(false);
-            this.loginError = true;
-          }, 3000);
-          return of(null);
-        })
-      ).subscribe();
-  }
   
+  onSubmit() {
+    if (this.isLoading || this.loginForm.invalid) return;
+    
+    this.isLoading = true;
+    this.loginError = false; // Resetar o erro antes de fazer a requisição
+    
+    this.service.login(this.loginForm.value)
+  }
+
   goToRegister() {
-    this.router.navigate(['/register']);
+    this.router.navigate(['auth/register']);
   }
 }

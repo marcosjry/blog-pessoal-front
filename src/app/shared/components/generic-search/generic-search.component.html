@@ -1,0 +1,13 @@
+<form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+    <app-dinamic-input
+        appearance="fill"
+        [label]="label"
+        type="text"
+        [customClass]="'customWidth teste'"
+        [isPassword]="false"
+        [formControl]="texto"
+        [required]="false"
+        icon="search"
+        >
+    </app-dinamic-input>
+</form>

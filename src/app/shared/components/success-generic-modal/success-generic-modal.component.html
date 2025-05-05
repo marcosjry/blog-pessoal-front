@@ -1,0 +1,22 @@
+<div class="success-modal-container">
+    <mat-card class="success-modal-card">
+        <mat-card-header>
+            <mat-card-title>{{ data.title }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="success-icon-container">
+                <mat-icon class="success-icon">check_circle</mat-icon>
+            </div>
+            <div class="success-message">
+                <p>{{ data.message }}</p>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <app-dinamic-loading-button
+                (btnClick)="onContinueClick()"
+                type="submit">
+                Confirmar
+            </app-dinamic-loading-button>
+        </mat-card-actions>
+    </mat-card>
+</div>

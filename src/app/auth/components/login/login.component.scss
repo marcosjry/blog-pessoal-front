@@ -1,4 +1,4 @@
-@import "../../global/variables.scss";
+@import "../../../core/styles/variables.scss";
 
 form {
     margin-top: 20px;
@@ -17,17 +17,7 @@ app-dinamic-input {
     margin-top: 20px;
 }
 
-button{
-    width: 150px;
-    max-width: 225px;
-}
 
-.button-content {
-    display: flex;
-    align-items: center;
-    gap: 8px; // espaço entre spinner e texto
-}
-  
 @media (max-width: 600px) {
     .login-card {
       width: 95%;

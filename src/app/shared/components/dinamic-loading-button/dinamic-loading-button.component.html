@@ -1,0 +1,27 @@
+<button
+      mat-raised-button  
+      [type]="type" 
+      (click)="onClick()" 
+      [disabled]="isLoading || disabled"
+      [class]="buttonClass"
+      [ngClass]="{ 'custom-color': !disabled && !isLoading && deleteItem, 
+                   'custom-button-style': !deleteItem
+                   }"
+      style="position: relative; min-width: 125px;">
+      <div [style.visibility]="isLoading ? 'hidden' : 'visible'" style="display: inline-block" class="align-item">
+        <ng-content></ng-content>
+        {{actionButton}}
+      </div>
+      
+      <div *ngIf="isLoading" 
+           class="spinner-wrap">
+        <div class="spinner">
+          <mat-progress-spinner 
+            [diameter]="spinnerSize" 
+            [color]="spinnerColor"
+            mode="indeterminate"
+            @fadeInOut>
+          </mat-progress-spinner>
+        </div>
+      </div>
+</button>

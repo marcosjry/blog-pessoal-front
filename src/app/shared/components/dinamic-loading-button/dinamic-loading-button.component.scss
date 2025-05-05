@@ -1,0 +1,52 @@
+@import "../../../core/styles/variables.scss";
+
+:host {
+    display: inline-block;
+  }
+  
+  .button-style {
+    display: flex;
+    align-items: center;
+    min-height: 36px;
+    overflow: hidden;
+    transition: all 0.3s ease; 
+  }
+
+.spinner-wrap {
+  position: absolute;
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  left: 0; 
+  right: 0; 
+  top: 0; 
+  bottom: 0;
+  }
+
+.spinner {
+  display: flex; 
+  align-items: center; 
+  gap: 8px;
+}
+
+.custom-color {
+  display: flex;
+  align-items: center;
+  background-color: $primary-blue;
+  color: white;
+}
+
+.custom-button-style {
+    mat-icon {
+      font-size: 18px;
+    }
+
+    &:hover {
+      background-color: $primary-blue;
+      color: white;
+    }
+
+    &.warn {
+      color: #f44336;
+    }
+}

@@ -18,6 +18,7 @@ export class SignupService {
 
   createUser(user: SignUp): Observable<JSON> {
     this.loadingSubject.next(true);
+    console.log(user);
     return this.http.post<JSON>(this.baseUrl, user);
   }
 

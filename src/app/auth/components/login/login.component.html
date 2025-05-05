@@ -1,6 +1,8 @@
 <app-default-layout [title]="'Login'" [disabled]="true">
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <app-dinamic-input
+            [required]="true"
+            appearance="outline"
             label="Usuário"
             placeholder="Digite seu Usuário"
             type="usuario"
@@ -10,6 +12,8 @@
         </app-dinamic-input>
         
         <app-dinamic-input
+            [required]="true"
+            appearance="outline"
             label="Senha"
             placeholder="Digite sua senha"
             type="senha"
@@ -18,29 +22,22 @@
             >
         </app-dinamic-input>
         
-        
-      
       <div *ngIf="loginError" class="match-error">
           <mat-error>Usuário ou senha inválidos</mat-error>
       </div>
 
       <div class="actions">
-          <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid || (loading$ | async)">
-              <span class="button-content">
-                <mat-progress-spinner
-                  *ngIf="loading$ | async"
-                  class="spinner"
-                  [diameter]="20"
-                  mode="indeterminate"
-                  color="accent">
-                </mat-progress-spinner>
-                <span>Entrar</span>
-              </span>
-          </button>
-          
-          <button mat-button color="accent" type="button" (click)="goToRegister()">
-            Registrar-se
-          </button>
+        <app-dinamic-loading-button
+          [spinnerColor]="'primary'"
+          [isLoading]="isLoading" 
+          [disabled]="loginForm.invalid"
+          type="submit" 
+          (btnClick)="onSubmit()">
+          Entrar
+        </app-dinamic-loading-button>
+        <button mat-button color="accent" type="button" (click)="goToRegister()">
+          Registrar-se
+        </button>
       </div>
     </form>
 </app-default-layout>
