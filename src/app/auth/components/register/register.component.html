@@ -6,6 +6,8 @@
     <form [formGroup]="signForm" (ngSubmit)="onSubmit()">
 
         <app-dinamic-input
+            [required]="true"
+            appearance="outline"
             label="Nome Completo"
             placeholder="Digite seu Nome completo"
             type="name"
@@ -15,6 +17,8 @@
         </app-dinamic-input>
 
         <app-dinamic-input
+            [required]="true"
+            appearance="outline"
             label="Usuário"
             placeholder="Digite seu Usuário"
             type="usuario"
@@ -24,6 +28,8 @@
         </app-dinamic-input>
 
         <app-dinamic-input
+            [required]="true"
+            appearance="outline"
             label="Senha"
             placeholder="Digite sua senha"
             type="password"
@@ -35,6 +41,8 @@
             As senhas devem bater.
         </mat-error>
         <app-dinamic-input
+            [required]="true"
+            appearance="outline"
             label="Senha"
             placeholder="Confirme sua senha"
             type="password"
@@ -42,20 +50,18 @@
             [formControl]="confirmaSenhaControl"
             >
         </app-dinamic-input>
+        <mat-error *ngIf="signError" class="req-error">
+            {{messageReqError}}
+        </mat-error>
 
       <div class="actions">
-        <button mat-raised-button color="primary" type="submit" [disabled]="signForm.invalid || (loading$ | async) || !notEqual">
-            <span class="button-content">
-              <mat-progress-spinner
-                *ngIf="loading$ | async"
-                class="spinner"
-                [diameter]="20"
-                mode="indeterminate"
-                color="accent">
-              </mat-progress-spinner>
-              <span>Registrar-se</span>
-            </span>
-        </button>
+        <app-dinamic-loading-button
+          [spinnerColor]="'primary'"
+          [isLoading]="isLoading" 
+          [disabled]="signForm.invalid && !notEqual"
+          type="submit">
+          Registrar
+        </app-dinamic-loading-button>
     </div>
     </form>
 </app-default-layout>

@@ -23,7 +23,19 @@ button{
 }
 
 .match-error {
+    z-index: 1;
     position: absolute;
-    top: 64%;
-    left: 35%;
+    top: 64.5%;
+    left:35%;
+}
+
+.req-error {
+  position: absolute;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  top: 33%;
+  left:0;
+  right: 0; 
+  bottom: 0;
 }
