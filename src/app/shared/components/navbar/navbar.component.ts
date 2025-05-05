@@ -58,7 +58,6 @@ export class NavbarComponent {
     this.service.isAuthenticated$.subscribe(value => {
       this.userAuthenticated = value;
     });
-    console.log(this.userAuthenticated);
   }
 
   setActiveMenu(menu: string): void {

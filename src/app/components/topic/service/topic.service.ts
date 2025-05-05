@@ -6,7 +6,8 @@ import { Topic } from '../model/topic';
   providedIn: 'root'
 })
 export class TopicService {
-  private baseUrl: string = 'http://localhost:8080/api/temas'
+
+  private baseUrl: string = 'https://blog-pessoal-production.up.railway.app/api/temas'
   constructor(private http: HttpClient) { }
 
   getAllTopic() {

@@ -12,7 +12,7 @@ export class PostService {
 
   private posts: Post[] = []
 
-  private baseUrl: string = 'http://localhost:8080'
+  private baseUrl: string = 'https://blog-pessoal-production.up.railway.app'
 
   constructor(private http: HttpClient, private sharedService: SharedService) { }
 

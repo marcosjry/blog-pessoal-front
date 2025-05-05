@@ -20,7 +20,7 @@ export class LoginService{
   isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
   isAuthenticated$ = this.isAuthenticatedSubject.asObservable();
 
-  private baseUrl = 'http://localhost:8080/api/usuarios';
+  private baseUrl = 'https://blog-pessoal-production.up.railway.app/api/usuarios';
   constructor(private http: HttpClient, private router: Router) {
     this.isAuthenticated$.subscribe(value => this.userIsAuthenticated = value);
    }
