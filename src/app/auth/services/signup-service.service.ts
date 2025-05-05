@@ -13,7 +13,7 @@ export class SignupService {
     delay(300)
   );
     
-  private baseUrl: string = 'http://localhost:8080/api/usuarios';
+  private baseUrl: string = 'https://blog-pessoal-production.up.railway.app/api/usuarios';
   constructor(private http: HttpClient, private service: LoginService) { }
 
   createUser(user: SignUp): Observable<JSON> {

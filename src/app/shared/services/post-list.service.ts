@@ -10,7 +10,7 @@ import { LoginService } from '../../auth/services/login.service';
 })
 export class PostListService {
 
-  private baseUrl: string = 'http://localhost:8080/api/postagens'
+  private baseUrl: string = 'https://blog-pessoal-production.up.railway.app/api/postagens'
 
   private allPosts: Post[] = [];
   private userPosts: Post[] = [];

@@ -10,6 +10,7 @@ import { PostService } from '../service/post.service';
 import { DinamicLoadingButtonComponent } from '../../../shared/components/dinamic-loading-button/dinamic-loading-button.component';
 import { SharedService } from '../../../shared/services/shared.service';
 import { Post } from '../../../home/models/Post';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-post-create',
@@ -27,9 +28,11 @@ import { Post } from '../../../home/models/Post';
 })
 export class PostCreateComponent implements OnInit {
 
+  topicsSubject = new BehaviorSubject<Topic[]>([]);
+
   @Input() topics: Topic[] = [];
   @Output() refreshTopics = new EventEmitter<void>();
-  @Input() mode: 'create' | 'edit' = 'create';
+  @Input() mode: string = 'create';
   @Input() postToEdit!: Post;
 
   private topicRelation: Map<string, number> = new  Map<string, number>();
@@ -76,8 +79,9 @@ export class PostCreateComponent implements OnInit {
 
     this.isLoading = true;
     const { titulo, tema, texto } = this.postCreateForm.value;
-    const temaId = this.topicRelation.get(tema)!;
+    const temaId = Number(this.topicRelation.get(tema));
 
+    console.log(temaId);
     setTimeout(() => {
       this.isLoading = false;
       this.mode === 'create'

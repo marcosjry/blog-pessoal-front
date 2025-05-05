@@ -35,7 +35,6 @@ export class PostCreatePageComponent {
   }
 
   onTemaCriado() {
-    this.criarTema = false;
     this.buscarTemas(); // atualiza lista de temas
   }
 
