@@ -1,0 +1,25 @@
+<section class="searchable-list-container">
+    <mat-card class="searchable-card" appearance="outlined">
+      <app-generic-search 
+      [label]="'Buscar por título, autor, tema...'"
+      (search)="onSearch.emit($event)"
+      ></app-generic-search>
+  
+      <mat-card-header>
+        <mat-card-title>{{ title }}</mat-card-title>
+      </mat-card-header>
+  
+      <mat-card-content>
+        <div class="loading-spinner" *ngIf="isLoading">
+          <mat-spinner diameter="60"></mat-spinner>
+        </div>
+  
+        <div class="no-results" *ngIf="!isLoading && items?.length === 0">
+          <p>{{ emptyMessage }}</p>
+        </div>
+  
+        <ng-content *ngIf="!isLoading && items.length > 0"></ng-content>
+      </mat-card-content>
+    </mat-card>
+</section>
+  
