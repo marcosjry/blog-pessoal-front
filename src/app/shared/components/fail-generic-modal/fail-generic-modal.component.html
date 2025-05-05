@@ -1,0 +1,22 @@
+<div class="error-modal-container">
+    <mat-card class="error-modal-card">
+        <mat-card-header>
+            <mat-card-title>{{ data.title }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="error-icon-container">
+                <mat-icon class="error-icon">error_outline</mat-icon>
+            </div>
+            <div class="error-message">
+                <p>{{ data.message }}</p>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <app-dinamic-loading-button
+                (btnClick)="onContinueClick()"
+                type="submit">
+                Confirmar
+            </app-dinamic-loading-button>
+        </mat-card-actions>
+    </mat-card>
+</div>
