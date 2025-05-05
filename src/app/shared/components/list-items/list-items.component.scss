@@ -1,0 +1,131 @@
+@import "../../../core/styles/variables.scss";
+
+.mat-mdc-card-content {
+    padding: 0 !important;
+}
+
+.list-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+}
+
+.item-container {
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+    border-radius: 20px;
+    background-color: white;
+    display: flex;
+    width: 400px;
+    flex-direction: column;
+    h2, h3, p {
+        letter-spacing: 1px;
+        margin:  0;
+    }
+
+    h3 {
+        font-size: 16px;
+        color: $secondary-text-color;
+        font-weight: 400;
+    }
+
+    p {
+        font-size: 12px;
+        font-weight: 500;
+    }
+    gap: 15px;
+    padding: 15px;
+}
+
+mat-divider {
+    margin: 20px 0;
+    opacity: 30%;
+}
+
+.date {
+    display: flex;
+    flex-direction: row;
+}
+
+.author-info {
+    display: flex;
+    flex-direction: row;
+}
+
+.author-info, .date {
+    gap: 5px;
+}
+.author {
+    background-color: $primary-blue-button;
+    border-radius: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: white;
+}
+.person-calendar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.person-calendar p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mat-icon {
+    height: 17px;
+    width: 17px;
+}
+
+.material-icons {
+    font-size: 17px
+}
+
+.text {
+    margin-top: 5px;
+    text-align: start;
+}
+
+.menu-actions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0.5rem;
+    justify-content: space-around;
+  
+    button[mat-menu-item] {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0.5rem 1rem;
+      font-size: 14px;
+      border: none;
+      border-radius: 20px;
+      mat-icon {
+        font-size: 18px;
+      }
+  
+      &:hover {
+        background-color: $primary-blue;
+        color: white;
+      }
+  
+      &.warn {
+        color: #f44336;
+      }
+    }
+  }
+
+  .delete-is-loading {
+    background-color: #e3e3e4 !important;
+    color: white !important;
+    &:hover {
+        background-color: #e3e3e4 !important;
+        cursor: default !important;
+        color: white !important;
+    }
+  }
