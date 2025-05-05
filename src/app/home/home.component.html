@@ -1,0 +1,17 @@
+<app-searchable-list-card
+  [title]="'Postagens'"
+  [items]="postList"
+  [isLoading]="isLoading"
+  [emptyMessage]="'Nenhuma postagem encontrada até o momento.'"
+  (onSearch)="onSearch($event)"
+>
+  <app-list-items
+    [items]="postList"
+    [fields]="[
+      { key: 'tema' },
+      { key: 'titulo' },
+      { key: 'usuario' },
+      { key: 'dataPostagem', isDate: true }
+    ]"
+  ></app-list-items>
+</app-searchable-list-card>
