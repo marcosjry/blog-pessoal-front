@@ -1,0 +1,32 @@
+.searchable-list-container {
+    display: flex;
+    justify-content: center;
+}
+
+.searchable-card {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    justify-content: center;
+}
+
+mat-card-header {
+    margin: 20px 15px;
+}
+
+.mat-mdc-card {
+    border: none;
+    box-shadow: none;
+}
+
+.no-results {
+    padding: 40px 20px;
+    text-align: center;
+    color: #666;
+}
+
+.loading-spinner {
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+}

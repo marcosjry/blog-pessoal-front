@@ -1,0 +1,19 @@
+<app-searchable-list-card
+  [title]="'Minhas postagens'"
+  [items]="postList"
+  [isLoading]="isLoading"
+  [emptyMessage]="'Nenhuma postagem encontrada até o momento.'"
+  (onSearch)="onSearch($event)"
+>
+  <app-list-items
+    (itemDeletado)="carregarUserPosts()"
+    [items]="postList"
+    [fields]="[
+      { key: 'tema' },
+      { key: 'titulo' },
+      { key: 'usuario' },
+      { key: 'dataPostagem', isDate: true }
+    ]"
+    [isAtHomeContent]="false"
+  ></app-list-items>
+</app-searchable-list-card>
