@@ -1,0 +1,23 @@
+<form [formGroup]="topicForm" (ngSubmit)="onSubmit()">
+    <app-dinamic-input
+                    [required]="true"
+                    [customClass]="'customWidth'"
+                    appearance="outline"
+                    label="Tema"
+                    placeholder="Digite o Tema"
+                    type="text"
+                    [formControl]="topicControl"
+                    >
+    </app-dinamic-input>
+
+    <app-dinamic-loading-button
+          [spinnerColor]="'primary'"
+          [isLoading]="isLoading" 
+          [disabled]="topicForm.invalid"
+          type="submit">
+          Criar
+    </app-dinamic-loading-button>
+</form>
+<mat-error *ngIf="createError" class="req-error">
+    {{messageError}}
+</mat-error>

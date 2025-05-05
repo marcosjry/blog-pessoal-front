@@ -1,0 +1,15 @@
+form {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 40px;
+    app-dinamic-input  {
+        width: 400px;
+    }
+    app-dinamic-loading-button {
+        .mat-mdc-button {
+            background-color: blue !important;
+        }
+
+    }
+}
