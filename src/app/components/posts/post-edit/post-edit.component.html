@@ -1,0 +1,19 @@
+<section>
+    <div class="post-detail-wrapper">
+        <mat-card class="post-card">
+            <mat-card-content>
+                <app-post-create 
+                    actionButton="Atualizar Postagem" 
+                    [mode]="'edit'" 
+                    [postToEdit]="post" 
+                    *ngIf="post">
+                </app-post-create>
+            </mat-card-content>
+            <mat-error 
+                *ngIf="onError" 
+                class="no-results">
+                {{message}}
+            </mat-error>
+        </mat-card>
+    </div>
+</section>

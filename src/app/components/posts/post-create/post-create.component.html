@@ -1,0 +1,39 @@
+<form [formGroup]="postCreateForm" (ngSubmit)="onSubmit()">
+
+  <mat-form-field>
+    <mat-label>Escolha um Tema</mat-label>
+    <mat-select [formControl]="temaControl">
+      @for (topic of topics; track topic) {
+        <mat-option [value]="topic.descricao">{{topic.descricao}}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  <app-dinamic-input
+                [required]="true"
+                [customClass]="'customWidth'"
+                appearance="fill"
+                label="Título"
+                placeholder="Digite o Título"
+                type="text"
+                [formControl]="tituloControl"
+                >
+  </app-dinamic-input>  
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Escreva alguma coisa...</mat-label>
+    <textarea 
+        matInput 
+        placeholder=""
+        [formControl]="textoControl"
+    ></textarea>
+  </mat-form-field>  
+
+  <app-dinamic-loading-button
+          [spinnerColor]="'primary'"
+          [isLoading]="isLoading" 
+          [disabled]="postCreateForm.invalid"
+          [actionButton]="actionButton"
+          type="submit">
+  </app-dinamic-loading-button>
+</form>
