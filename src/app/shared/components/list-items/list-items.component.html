@@ -1,0 +1,50 @@
+<div class="list-wrapper">
+    <div class="item-container" *ngFor="let item of items">
+        <h2>{{item.tema}}</h2>
+        <h3>{{item.titulo}}</h3>
+        <div class="person-calendar">
+            <div class="author-info">
+                <p>by</p>
+                <p class="author">
+                    <mat-icon>person</mat-icon> {{item.usuario}}
+                </p>
+            </div>
+            <div class="date">
+                <p>
+                    -
+                </p>
+                <p >
+                    <mat-icon>calendar_today</mat-icon>{{ formatDate(item.dataPostagem) }}
+                </p>
+            </div>
+        </div>
+        <p class="text">{{item.texto}}</p>
+        <mat-divider></mat-divider>
+        <div class="menu-actions">
+            <button mat-menu-item (click)="visualizar(item)">
+                <mat-icon>visibility</mat-icon>
+                <span>Visualizar</span>
+              </button>
+              <button mat-menu-item 
+              *ngIf="!isAtHomeContent"
+              (click)="editar(item)">
+                <mat-icon>edit</mat-icon>
+                <span>Editar</span>
+              </button>
+
+              <button mat-menu-item
+               *ngIf="!isAtHomeContent"
+               (click)="deletar(item)"
+               [ngClass]="{'delete-is-loading': loadingItemId !== null }"
+               [disabled]="true ? loadingItemId !== null: false">
+               <div class="loading-spinner" *ngIf="loadingItemId === item.id">
+                    <div class="spinner">
+                        <mat-spinner diameter="20"></mat-spinner>
+                   </div>
+                </div>
+                <mat-icon *ngIf="loadingItemId === null">delete</mat-icon>
+                <span>Excluir</span>
+               </button>
+        </div>
+    </div>
+</div>
