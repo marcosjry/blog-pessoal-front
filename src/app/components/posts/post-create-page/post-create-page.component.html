@@ -1,0 +1,29 @@
+<section class="home-container">
+  <mat-card class="home-card">
+      <mat-card-content>
+
+        <mat-accordion class="expansion-container">
+          <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
+              <mat-expansion-panel-header>
+                <mat-panel-description>
+                  Deseja criar um novo Tema? 
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <app-topic-create 
+                  (temaCriado)="onTemaCriado()"
+              ></app-topic-create>
+          </mat-expansion-panel>
+        </mat-accordion>
+
+        <mat-card-header>
+          <mat-card-title>Crie uma postagem</mat-card-title>
+        </mat-card-header>
+        
+        <app-post-create 
+          [topics]="topics"
+          (refreshTopics)="buscarTemas()"
+        ></app-post-create>
+
+      </mat-card-content>
+  </mat-card>
+</section>
