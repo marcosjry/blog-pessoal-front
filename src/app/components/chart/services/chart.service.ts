@@ -8,7 +8,7 @@ import { PostsByUser } from '../models/posts-by-user';
   providedIn: 'root'
 })
 export class ChartService {
-  private baseUrl = 'http://localhost:8080/stats'
+  private baseUrl = 'https://blog-pessoal-production.up.railway.app/stats'
   constructor(
     private http: HttpClient
   ) { }
