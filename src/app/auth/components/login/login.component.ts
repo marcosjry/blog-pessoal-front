@@ -53,13 +53,13 @@ export class LoginComponent implements OnInit {
       usuario: ['', Validators.required],  // Sem o new FormControl
       senha: ['', Validators.required]
     });
-
+    
     this.usuarioControl = this.loginForm.get('usuario') as FormControl;
     this.senhaControl = this.loginForm.get('senha') as FormControl;
   }
   
-  ngOnInit(): void {
-    
+  ngOnInit(): void {   
+    this.service.loginError$.subscribe(value => this.loginError = value);
     this.loginForm.valueChanges.subscribe(() => {
       this.loginError = false;
     });

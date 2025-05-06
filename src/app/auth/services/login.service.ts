@@ -17,6 +17,9 @@ export class LoginService{
 
   private userIsAuthenticated: boolean = false;
 
+  loginErrorSubject = new BehaviorSubject<boolean>(false);
+  loginError$ = this.loginErrorSubject.asObservable();
+
   isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
   isAuthenticated$ = this.isAuthenticatedSubject.asObservable();
 
@@ -32,11 +35,13 @@ export class LoginService{
           this.isAuthenticatedSubject.next(true);
           this.setTokenToStorage(response);
           this.loadingSubject.next(false);
+          this.loginErrorSubject.next(false);
         }, 2000)
       },
       error: () => {
         setTimeout(() => {
           this.isAuthenticatedSubject.next(false);
+          this.loginErrorSubject.next(true);
           this.loadingSubject.next(false);
         }, 2000)
       }})
