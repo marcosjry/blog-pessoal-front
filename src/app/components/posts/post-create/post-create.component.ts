@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { DinamicInputComponent } from '../../../shared/components/dinamic-input/dinamic-input.component';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -26,7 +26,7 @@ import { BehaviorSubject } from 'rxjs';
   templateUrl: './post-create.component.html',
   styleUrl: './post-create.component.scss'
 })
-export class PostCreateComponent implements OnInit {
+export class PostCreateComponent implements OnInit, OnChanges {
 
   topicsSubject = new BehaviorSubject<Topic[]>([]);
 
@@ -57,6 +57,13 @@ export class PostCreateComponent implements OnInit {
     this.textoControl = this.postCreateForm.get('texto') as FormControl;
     this.temaControl = this.postCreateForm.get('tema') as FormControl;
   }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['topics'] && this.topics.length > 0) {
+      this.topic.setTopicRelation(this.topics, this.topicRelation);
+    }
+  }
+
   ngOnInit(): void {
     this.recebeTemas();
   
