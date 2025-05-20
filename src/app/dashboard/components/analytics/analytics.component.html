@@ -27,7 +27,26 @@
           </app-date-posts-chart>
         </mat-card-content>
     </mat-card>
-    
 </div>
+<div class="last-posts-card-container">
+  <mat-card class="last-posts-card">
+    <mat-card-title>Últimas Postagens
+      
+    </mat-card-title>
+    <mat-card-content>
+      <app-list-items
+        *ngIf="postList.length > 0"
+        [items]="postList"
+        [fields]="[
+          { key: 'tema' },
+          { key: 'titulo' },
+          { key: 'usuario' },
+          { key: 'dataPostagem', isDate: true }
+        ]">
+      </app-list-items>
+    </mat-card-content>
+  </mat-card>
+</div>
+
         
       

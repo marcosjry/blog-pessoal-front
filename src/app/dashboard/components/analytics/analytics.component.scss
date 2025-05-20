@@ -24,6 +24,24 @@
     max-width: 250px;
   }
 
+  .last-posts-card-container {
+    padding: 0px 24px 24px 24px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .last-posts-card {
+    width: auto;
+    display: flex;
+    border-radius: 12px;
+    padding: 24px; 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    background-color: rgb(255, 255, 255);
+    color: $primary-blue;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
   .summary-content {
     display: flex;
     justify-content: space-between;
