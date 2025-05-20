@@ -9,7 +9,7 @@ import { Post } from '../../../home/models/Post';
   providedIn: 'root'
 })
 export class ChartService {
-  private baseUrl = 'http://localhost:8080/stats'
+  private baseUrl = 'https://blog-pessoal-production.up.railway.app/stats'
 
   private lastPostsSubject = new BehaviorSubject<Post[]>([]);
   lastPosts$ = this.lastPostsSubject.asObservable();
